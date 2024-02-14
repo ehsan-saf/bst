@@ -13,7 +13,28 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
-let tree = new Tree([2, 3, 7, 5, 4]);
+function randomNumArr() {
+  let random = () => Math.floor(Math.random() * 20);
+  let arr = [];
+  for (let i = 0; i <= 99; i++) {
+    arr[i] = random();
+  }
+  return arr;
+}
 
-tree.insert(9);
+let tree = new Tree(randomNumArr());
+
+console.log(`Tree ${tree.isBalanced() ? "IS" : "is NOT"} balanced: `);
+prettyPrint(tree.root);
+
+tree.insert(25);
+tree.insert(86);
+tree.insert(4);
+
+console.log(`Tree ${tree.isBalanced() ? "IS" : "is NOT"} balanced: `);
+prettyPrint(tree.root);
+
+tree.rebalance();
+
+console.log(`Tree ${tree.isBalanced() ? "IS" : "is NOT"} balanced: `);
 prettyPrint(tree.root);
