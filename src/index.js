@@ -13,6 +13,20 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
   }
 };
 
+const printOrder = () => {
+  console.log("Level Order");
+  tree.levelOrder(print);
+
+  console.log("Pre Order");
+  tree.preOrder(print);
+
+  console.log("Post Order");
+  tree.postOrder(print);
+
+  console.log("In Order");
+  tree.inOrder(print);
+};
+
 function randomNumArr() {
   let random = () => Math.floor(Math.random() * 20);
   let arr = [];
@@ -27,9 +41,16 @@ let tree = new Tree(randomNumArr());
 console.log(`Tree ${tree.isBalanced() ? "IS" : "is NOT"} balanced: `);
 prettyPrint(tree.root);
 
-tree.insert(25);
-tree.insert(86);
-tree.insert(4);
+console.log(`Tree ${tree.isBalanced() ? "IS" : "is NOT"} balanced: `);
+prettyPrint(tree.root);
+
+const print = (val) => console.log(val);
+
+printOrder();
+
+tree.insert(13);
+tree.insert(658);
+tree.insert(414);
 
 console.log(`Tree ${tree.isBalanced() ? "IS" : "is NOT"} balanced: `);
 prettyPrint(tree.root);
@@ -38,3 +59,5 @@ tree.rebalance();
 
 console.log(`Tree ${tree.isBalanced() ? "IS" : "is NOT"} balanced: `);
 prettyPrint(tree.root);
+
+printOrder();
